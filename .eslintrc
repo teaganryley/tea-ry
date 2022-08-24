@@ -1,0 +1,151 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "jest",
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "eslint:recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    // Allows us to write single argument arrow functions without parentheses.
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "react/no-array-index-key": 0,
+    "react/no-unescaped-entities": 0,
+    "react/jsx-props-no-spreading": 0,
+    "jsx-a11y/anchor-has-content": 0,
+    "eol-last": [
+      "error",
+      "always"
+    ],
+    // Literals and small JSX calls as {variables} should be allowed in a single line, this won't prevent <App><Child/></App> though, so it's your job to make sure that won't happen.
+    "react/jsx-one-expression-per-line": [
+      1,
+      {
+        "allow": "single-child"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": "error",
+    "react/function-component-definition": 0,
+    // react-hooks/exhaustive-deps right now doesn't support empty or side effect deps, therefore is temporarily disabled
+    "react-hooks/exhaustive-deps": 0,
+    // yeah, yeah easy there AirBnb, we still want to declare private functions in a readable fashion
+    "no-underscore-dangle": 0,
+    // we have to send some fields in snake_case to the BE, so unfortunately this one will be set to false
+    "camelcase": 0,
+    // cmon lint, lemme debug in peace
+    "no-console": 0,
+    // just use .isRequired
+    "react/require-default-props": 0,
+    // Used for on-the-fly require (such as polyfills)
+    "global-require": 0,
+    // yeah, right cuz <> is way more readable than <React.Fragment /> pff seriously AirBnb?
+    "react/jsx-fragments": 0,
+    // Necessary for async (and hot-reloadable) redux stores
+    "no-param-reassign": 0,
+    // JSX Props is necessary into componente composition
+    "react/forbid-prop-types": 0,
+    "no-bitwise": 0,
+    "no-plusplus": 0,
+    "no-shadow": 0,
+    "max-len": 0,
+    "default-param-last": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/media-has-caption": 0,
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "no-multiple-empty-lines": 0,
+    "no-use-before-define": 0,
+    "comma-dangle": 0,
+    "linebreak-style": 0,
+    "import/order": 0,
+    "operator-linebreak": 0,
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": [
+          "src/"
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts",
+          "**/*.spec.ts",
+          "**/*.test.js",
+          "**/*.spec.js",
+          "**/*.test.jsx",
+          "**/*.spec.jsx",
+          "**/*.test.tsx",
+          "**/*.spec.tsx",
+          "./tests/",
+          "./mocks/",
+          "**/__tests__/"
+        ]
+      }
+    ],
+    "no-case-declarations": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx",
+          ".json"
+        ]
+      }
+    }
+  }
+}
